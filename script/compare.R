@@ -62,6 +62,8 @@ if (TRUE){
                 help="Groups comparison [default %default]"),
     make_option(c("-m", "--method"), type="character", default="wilcox",
                 help="Compare method, default wilcox, alternative edgeR or t.test [default %default]"),
+    make_option(c("-s", "--scale"), type="logical", default=TRUE,
+                help="Normalize to 100 [default %default]"),
     make_option(c("-p", "--pvalue"), type="numeric", default=0.05,
                 help="Threshold of P-value [default %default]"),
     make_option(c("-f", "--fdr"), type="numeric", default=0.1,
@@ -98,7 +100,7 @@ otutab = read.table(opts$input, header=T, row.names=1, sep="\t", comment.char=""
 output = compare(data = otutab, metadata = metadata,
                  group = opts$group, compare_pair = opts$compare,
                  method = opts$method, RA = opts$threshold,
-                 pvalue = opts$pvalue, fdr = opts$fdr)
+                 pvalue = opts$pvalue, fdr = opts$fdr, normalize = opts$scale)
 
 #----3.2 保存表格 Saving#----
 filename = paste0(opts$output, opts$compare, ".txt")
