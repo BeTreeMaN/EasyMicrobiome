@@ -1,11 +1,10 @@
 #!/usr/bin/env Rscript
 
-# Copyright 2016-2020, Yong-Xin Liu <metagenome@126.com>
+# Copyright 2016-2021 Yong-Xin Liu <yxliu@genetics.ac.cn / metagenome@126.com>
 
 # If used this script, please cited:
-# 1. EasyAmplicon(TBD)
-# 2. Jingying Zhang, Yong-Xin Liu, Na Zhang, Bin Hu, Tao Jin, Haoran Xu, Yuan Qin, Pengxu Yan, Xiaoning Zhang, Xiaoxuan Guo, Jing Hui, Shouyun Cao, Xin Wang, Chao Wang, Hui Wang, Baoyuan Qu, Guangyi Fan, Lixing Yuan, Ruben Garrido-Oter, Chengcai Chu & Yang Bai. NRT1.1B is associated with root microbiota composition and nitrogen use in field-grown rice. Nature Biotechnology 37, 676-684, doi:10.1038/s41587-019-0104-4 (2019).
-
+# Yong-Xin Liu, Yuan Qin, Tong Chen, Meiping Lu, Xubo Qian, Xiaoxuan Guo, Yang Bai. A practical guide to amplicon and metagenomic analysis of microbiome data. Protein Cell 2021(12) 5:315-330 doi: 10.1007/s13238-020-00724-8
+# 
 # 手动运行脚本请，需要设置工作目录，使用 Ctrl+Shift+H 或 Session - Set Work Directory - Choose Directory / To Source File Location 设置工作目录
 
 
@@ -60,7 +59,7 @@ if (TRUE){
 
 # 读取OTU表和sintax物种注释
 otutab = read.table(opts$input, header=T, row.names=1, sep="\t", comment.char="")
-sintax = read.table(opts$taxonomy, header=F, row.names=1, sep="\t", comment.char="")
+sintax = read.table(opts$taxonomy, header=F, row.names=1, sep="\t", fill = TRUE, comment.char="")
 
 print(paste0("Input feature table is ", opts$input))
 print(paste0("Input sintax taxonomy table is ", opts$taxonomy))

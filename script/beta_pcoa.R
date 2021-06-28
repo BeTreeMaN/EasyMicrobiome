@@ -1,23 +1,21 @@
 #!/usr/bin/env Rscript
 
-# Copyright 2016-2020 Yong-Xin Liu <metagenome@126.com>
+# Copyright 2016-2021 Yong-Xin Liu <yxliu@genetics.ac.cn / metagenome@126.com>
 
 # If used this script, please cited:
-# Yong-Xin Liu, Yuan Qin, Tong Chen, Meiping Lu, Xubo Qian, Xiaoxuan Guo & Yang Bai. 
-# A practical guide to amplicon and metagenomic analysis of microbiome data. 
-# Protein Cell 41, 1-16, doi:10.1007/s13238-020-00724-8 (2020).
-# Jingying Zhang, Yong-Xin Liu, Na Zhang, Bin Hu, Tao Jin, Haoran Xu, Yuan Qin, Pengxu Yan, Xiaoning Zhang, Xiaoxuan Guo, Jing Hui, Shouyun Cao, Xin Wang, Chao Wang, Hui Wang, Baoyuan Qu, Guangyi Fan, Lixing Yuan, Ruben Garrido-Oter, Chengcai Chu & Yang Bai.
-# NRT1.1B is associated with root microbiota composition and nitrogen use in field-grown rice. 
-# Nature Biotechnology 37, 676-684, doi:10.1038/s41587-019-0104-4 (2019).
+# Yong-Xin Liu, Yuan Qin, Tong Chen, Meiping Lu, Xubo Qian, Xiaoxuan Guo, Yang Bai. A practical guide to amplicon and metagenomic analysis of microbiome data. Protein Cell 2021(12) 5:315-330 doi: 10.1007/s13238-020-00724-8
 
 # 手动运行脚本请，需要设置工作目录，使用 Ctrl+Shift+H 或 Session - Set Work Directory - Choose Directory / To Source File Location 设置工作目录
+
+# 更新
+# 2021/6/27: 添加显示标签的功能
 
 #----1. 参数 Parameters#----
 
 #----1.1 功能描述 Function description#----
 
-# 程序功能：Alpha丰富度稀释曲线绘制
-# Functions: Alpha rarefaction curve
+# 程序功能：Beta多样性主坐标分析
+# Functions: PCoA of Beta distance matrix
 
 options(warn = -1) # Turn off warning
 
@@ -26,13 +24,13 @@ options(warn = -1) # Turn off warning
 
 # 修改下面`default=`后面的文件和参数。
 #
-# 输入文件为距离矩阵(如bray_curtis.txt)+分组信息(metadata.tsv)
+# 输入文件为距离矩阵(如bray_curtis.txt)+分组信息(metadata.txt)
 #
 # 输入文件"-i", "--input"，result/beta/bray_curtis.txt; beta多样性距离矩阵文件，有多种距离可选，常用bray_curtis、jaccard、unifrac和unifrac_binary
 #
-# 实验设计"-d", "--design"，默认`result/metadata.tsv`，可手动修改文件位置；
+# 实验设计"-d", "--design"，默认`result/metadata.txt`，可手动修改文件位置；
 #
-# 分组列名"-n", "--group"，默认将metadata.tsv中的Group列作为分组信息，可修改为任意列名；
+# 分组列名"-n", "--group"，默认将metadata.txt中的Group列作为分组信息，可修改为任意列名；
 #
 # 图片宽"-w", "--width"，默认89 mm，根据图像布局可适当增大或缩小
 #
@@ -54,11 +52,13 @@ if (!suppressWarnings(suppressMessages(require("optparse", character.only = TRUE
 if (TRUE){
   option_list = list(
     make_option(c("-i", "--input"), type="character", default="result/beta/bray_curtis.txt",
-                help="Alpha rarefaction richness [default %default]"),
+                help="Beta distance matrix [default %default]"),
     make_option(c("-d", "--design"), type="character", default="result/metadata.txt",
                 help="Design file or metadata [default %default]"),
     make_option(c("-n", "--group"), type="character", default="Group",
                 help="Group name [default %default]"),
+    make_option(c("-l", "--label"), type="logical", default=FALSE,
+                help="Design file or metadata [default %default]"),
     make_option(c("-o", "--output"), type="character", default="",
                 help="Output directory; name according to input [default %default]"),
     make_option(c("-w", "--width"), type="numeric", default=89,
@@ -94,7 +94,7 @@ distance_mat = read.table(opts$input, header=T, row.names=1, sep="\t", comment.c
 
 #----3.1 绘图 Plotting#----
 # 输入矩阵矩阵、元数据和分组列，返回ggplot2对象
-p = beta_pcoa(distance_mat, metadata, groupID = opts$group)
+p = beta_pcoa(distance_mat, metadata, groupID = opts$group, label=opts$label)
 
 #---3.2 保存 Saving#----
 # 大家可以修改图片名称和位置，长宽单位为毫米
