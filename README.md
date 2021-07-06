@@ -12,6 +12,10 @@ Scripts and databases for easy amplicon and easy metagenome
 
 *注：名称的链接对应软件的主页，大部分已经整合入本项目。对于较大的文件，后需提供下载链接，如使用到需自行下载。
 
+- 易扩增子分析流程：http://210.75.224.110/db/train/2107Amplicon12/amplicon.zip
+- R语言4.1环境和R包：Windows版: 软件 http://210.75.224.110/db/train/2107Amplicon12/win_soft/R-4.1.0-win.exe 和 包 http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip
+- 依赖软件和数据库: https://github.com/yongxinliu/db
+
 - linux：Linux系统下分析软件
     - [microbiome_helper](https://github.com/LangilleLab/microbiome_helper)：微生物组分析输助脚本，如metaphlan2结果转换STAMP格式(metaphlan_to_stamp.pl)，picurst结果功能组成绘图(plot_metagenome_contributions.R)
     - Miniconda2-latest-Linux-x86_64.sh：软件管理器 https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
