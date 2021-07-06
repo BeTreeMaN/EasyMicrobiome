@@ -1,28 +1,30 @@
-# 软件和数据库清单(db)
+# 微生物组软件和数据库清单(db)
 
-扩增子、宏基因组分析常用软件、数据库、脚本文件
+易扩增子、易宏基因组分析流程依赖常用软件、数据库、脚本文件
 
-Scripts and databases for amplicon and metagenome
+Scripts and databases for easy amplicon and easy metagenome
 
-版本：EasyMetagenome v1.11
+版本：db v1.12
 
-更新时间：2021/5/19
+更新时间：2021/7/6
 
 ## 软件
 
+*注：名称的链接对应软件的主页，大部分已经整合入本项目。对于较大的文件，后需提供下载链接，如使用到需自行下载。
+
 - linux：Linux系统下分析软件
-    - microbiome_helper：metaphlan2结果转换STAMP格式(metaphlan_to_stamp)，picurst结果功能组成绘图(plot_metagenome_contributions.R)
-    - Miniconda2-latest-Linux-x86_64.sh：Conda安装程序
-    - qiime2-2021.2.tar.gz：QIIME2安装包，解压至conda的envs目录可用
+    - [microbiome_helper](https://github.com/LangilleLab/microbiome_helper)：微生物组分析输助脚本，如metaphlan2结果转换STAMP格式(metaphlan_to_stamp.pl)，picurst结果功能组成绘图(plot_metagenome_contributions.R)
+    - Miniconda2-latest-Linux-x86_64.sh：软件管理器 https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    - qiime2-2021.2.tar.gz：QIIME2安装包，解压至conda的envs目录可用 http://210.75.224.110/db/conda/qiime2-2021.2.tar.gz
     - qiime2-2021.2-py36-linux-conda.yml：QIIME2软件安装清单，使用conda在线安装
-    - sparcc.zip：sparcc网络分析python脚本
-    - usearch：扩增子分析流程
-    - vsearch：扩增子分析流程(免费64位版usearch)
+    - [sparcc](https://github.com/TankMermaid/sparcc)：sparcc网络分析python脚本
+    - [usearch](http://www.drive5.com/usearch/)：扩增子分析流程
+    - [vsearch](https://github.com/torognes/vsearch)：扩增子分析流程(免费64位版usearch)
 - mac：Mac系统下分析软件
     - csvtk：表格分析工具
     - iqtree：进化树构建
     - qiime2-2021.2-py36-osx-conda.yml：QIIME2软件安装清单，使用conda在线安装
-    - R-4.0.4.pkg：R语言安装包
+    - R-4.1.0.pkg：R语言安装包
     - RStudio-1.4.1106.dmg：RStudio安装包
     - rush：并行管理工具
     - seqkit：序列处理工具
@@ -30,8 +32,8 @@ Scripts and databases for amplicon and metagenome
     - usearch：扩增子分析流程
     - vsearch：扩增子分析流程(免费64位版usearch)
 - win：Windows系统下分析软件
-    - STAMP2.1.3：微生物组图形界面差异分析工具
-    - 4.0.zip：R语言常用400+包合集，解压至R包安装位置
+    - [STAMP2.1.3]()：微生物组图形界面差异分析工具
+    - 4.1.zip：R语言常用400+包合集，解压至R包安装位置
     - Adobe_Illustrator_CC_2018_v22.1.0.314_x64_zh_CN_Portable.7z：图片拼图、模式图绘制工具
     - csvtk.exe：表格分析工具
     - Cytoscape_3_8_2_windows_64bit.exe：网络分析安装包
@@ -40,8 +42,8 @@ Scripts and databases for amplicon and metagenome
     - gephi-0.9.2-windows.exe：网络图绘制工具
     - Git-2.30.2-64-bit.exe：提供Git bash环境
     - iqtree.exe：进化树构建
-    - jdk-11.0.7_windows-x64_bin.exe：Java运行环境
     - libiomp5md.dll：动态库，运行中提示缺少时可添加至系统目录
+    - jdk-11.0.7_windows-x64_bin.exe：Java运行环境
     - muscle.exe：多序列比对工具
     - npp.7.8.9.Installer.x64.exe：文本编辑器NotePad++安装包
     - R-4.0.4-win.exe：R语言安装包
