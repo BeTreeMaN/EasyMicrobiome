@@ -43,8 +43,12 @@ if (TRUE){
                 help="Normalize to 100 [default %default]"),
     make_option(c("-d", "--metadata"), type="character", default="metadata.txt",
                 help="Experiment metadata or sample metadata [default %default]"),
+    make_option(c("-a", "--all"), type="character", default="FALSE",
+                help="All sample average or summary column [default %default]"),
     make_option(c("-n", "--group"), type="character", default="GroupID",
                 help="Column name of group [default %default]"),
+    make_option(c("-t", "--type"), type="character", default="mean",
+                help="mean, sum [default %default]"),
     make_option(c("-o", "--output"), type="character", default="otutab_mean.txt",
                 help="output directory and prefix [default %default]")
   )
@@ -55,15 +59,19 @@ if (TRUE){
     opts$output=paste(opts$input, "_", opts$group, sep = "")}
 
   # 调试参数区，完成后请注释掉
-  # opts$input="result/salmon_gene/gene.TPM.Acinetobacter.K00117"
-  # opts$metadata="result/metadata.txt"
-  # opts$output="result/salmon_gene/gene.TPM.Acinetobacter.K00117.mean.txt"
-  
+  # setwd("/mnt/m1/yongxin/rice/MAG/genome/isolate")
+  # opts$input="result/dbcan2/sum.Level1.raw.txt"
+  # opts$metadata="result/itol/all_tax.txt"
+  # opts$group="Phylum"
+  # opts$type="sum"
+  # opts$output="result/dbcan2/sum.Level1.sum.Phylum.txt"
+
   # 显示输入输出确认是否正确
   print(paste("Feature table: ", opts$input,  sep = ""))
   print(paste("Metadata: ", opts$metadata,  sep = ""))
   print(paste("Group name: ", opts$group,  sep = ""))
   print(paste("Abundance threshold: ", opts$thre,  sep = ""))
+  print(paste("Calculate type: ", opts$type,  sep = ""))
   print(paste("Output filename: ", opts$output, sep = ""))
 }
 
@@ -114,8 +122,18 @@ HA = norm[,idx]
 
 # 按group合并
 merge=cbind(HA, metadata[,c("group"),drop=F])
-HA_group_mean = merge %>% group_by(group) %>% summarise_all(mean)
-HA_t = as.data.frame(cbind(c("All", round(colMeans(HA), digits = 6)),t(HA_group_mean)), stringsAsFactors = F)
+if (opts$type == "sum"){
+  HA_group_mean = merge %>% group_by(group) %>% summarise_all(sum)
+}else {
+  HA_group_mean = merge %>% group_by(group) %>% summarise_all(mean)
+}
+
+if (opts$all){
+  HA_t = as.data.frame(cbind(c("All", round(colMeans(HA), digits = 6)),t(HA_group_mean)), stringsAsFactors = F)
+}else {
+  HA_t = as.data.frame(t(HA_group_mean), stringsAsFactors = F)
+}
+
 rownames(HA_t)[1] = "OTUID"
 
 write.table(HA_t, file=paste(opts$output, "", sep = ""), append = FALSE, sep="\t", quote=F, row.names=T, col.names=F)
