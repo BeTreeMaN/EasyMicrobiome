@@ -6,11 +6,11 @@ Scripts and databases for easy amplicon and easy metagenome
 
 版本：db v1.12
 
-更新时间：2021/7/6
+更新时间：2021/7/7
 
 ## 软件
 
-*注：名称的链接对应软件的主页，大部分已经整合入本项目。对于较大的文件，后需提供下载链接，如使用到需自行下载。
+*注：名称的链接对应软件的主页，大部分已经整合入本项目。对于较大的文件，标题后提供下载链接，使用时需自行下载。
 
 - 易扩增子分析流程：http://210.75.224.110/db/train/2107Amplicon12/amplicon.zip
 - R语言4.1环境和R包：Windows版: 软件 http://210.75.224.110/db/train/2107Amplicon12/win_soft/R-4.1.0-win.exe 和 包 http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip
@@ -36,41 +36,47 @@ Scripts and databases for easy amplicon and easy metagenome
     - usearch：扩增子分析流程
     - vsearch：扩增子分析流程(免费64位版usearch)
 - win：Windows系统下分析软件
-    - [STAMP2.1.3]()：微生物组图形界面差异分析工具
-    - 4.1.zip：R语言常用400+包合集，解压至R包安装位置
-    - Adobe_Illustrator_CC_2018_v22.1.0.314_x64_zh_CN_Portable.7z：图片拼图、模式图绘制工具
-    - csvtk.exe：表格分析工具
-    - Cytoscape_3_8_2_windows_64bit.exe：网络分析安装包
-    - epp510_1828_64bit.exe：文本编辑器
-    - FileZilla_3.49.1_win64_sponsored-setup.exe：文件上传下载
-    - gephi-0.9.2-windows.exe：网络图绘制工具
-    - Git-2.30.2-64-bit.exe：提供Git bash环境
+    - [Git-2.30.2-64-bit.exe](http://gitforwindows.org/)：提供Git bash环境，自行下载安装，教程见：[Windows轻松实现linux shell环境：gitforwindows](https://mp.weixin.qq.com/s/KtM4c4o4iLfD4ZkEnMi1pg)
+    - [R-4.1.0-win.exe](https://www.r-project.org/ )：R语言安装包，下载最新版：Downad CRAN - China Tsinghua - Download R for Windows(Mac) —— base —— Download R 4.1.0
+    - [RStudio-1.4.1106.exe](https://www.rstudio.com/products/rstudio/download/#download)：RStudio安装包，提供分析运行界面。
+    - [4.1.zip](http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip)：R语言常用400+包合集，解压至R包安装位置即可用。
+    - [usearch.exe](http://www.drive5.com/usearch/)：扩增子分析流程
+    - [vsearch.exe](https://github.com/torognes/vsearch)：扩增子分析流程(免费64位版usearch)
+    - [STAMP2.1.3](http://kiwi.cs.dal.ca/Software/STAMP)：微生物组图形界面差异分析工具
+    - Adobe_Illustrator_CC_2018_v22.1.0.314_x64_zh_CN_Portable.7z：图片拼图、模式图绘制工具，使用试用版或自行购买
+    - [Cytoscape_3_8_2_windows_64bit.exe](http://www.cytoscape.org)：网络分析安装包
+    - [csvtk.exe](https://github.com/shenwei356/csvtk)：表格分析工具
+    - [seqkit.exe](https://github.com/shenwei356/seqkit)：序列处理工具
+    - [taxonkit.exe](https://github.com/shenwei356/taxonkit )：NCBI分类处理工具
+    - [rush.exe](https://github.com/shenwei356/rush)：并行管理工具
+    - [epp510_1828_64bit.exe](https://www.editplus.com/)：文本编辑器
+    - [Xshell](https://www.netsarang.com/zh/free-for-home-school)：远程访问服务器终端，需要申请免费版下载链接；备选[PuTTY](http://www.putty.be/)
+    - [FileZilla](https://filezilla-project.org/download.php?type=client)：远程访问服务器文件上传下载，备选[WinSCP](https://winscp.net/eng/download.php)
+    - [gephi-0.9.2-windows.exe](https://gephi.org/)：网络图绘制工具
     - iqtree.exe：进化树构建
-    - libiomp5md.dll：动态库，运行中提示缺少时可添加至系统目录
+    - libiomp5md.dll：动态库，iqtree运行中提示缺少时，可添加至软件所在目录
     - jdk-11.0.7_windows-x64_bin.exe：Java运行环境
     - muscle.exe：多序列比对工具
     - npp.7.8.9.Installer.x64.exe：文本编辑器NotePad++安装包
-    - R-4.0.4-win.exe：R语言安装包
-    - RStudio-1.4.1106.exe：RStudio安装包
     - rtools40-x86_64.exe：R源码安装时的编绎工具
-    - rush.exe：并行管理工具
-    - seqkit.exe：序列处理工具
-    - taxonkit.exe：NCBI分类处理工具
-    - usearch.exe：扩增子分析流程
-    - vsearch.exe：扩增子分析流程(免费64位版usearch)
     - wget.exe：命令行下载工具
 
 ## 数据库
 
 - gg：GreenGenes细菌16S数据库
-    - gg_13_8_otus.tar.gz：13年8月更新OTU数据库，用于usearch有参定量和PICRUSt/BugBase功能预测、QIIME 2制作分类器
+    - [gg_13_8_otus.tar.gz](ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+)：13年8月更新OTU数据库，用于usearch有参定量和PICRUSt/BugBase功能预测、QIIME 2制作分类器。[国内备份链接](http://210.75.224.110/db/gg/gg_13_8_otus.tar.gz)
+    - [16S_13_5_precalculated.tab.gz](http://210.75.224.110/db/picrust/16S_13_5_precalculated.tab.gz)：picrust的GreenGenes 16S拷贝数
+	- [ko_13_5_precalculated.tab.gz](http://210.75.224.110/db/picrust/ko_13_5_precalculated.tab.gz)：picrust的GreenGenes 16S对应的KO数量信息
 - kegg：KEGG数据库描述信息整理
+    - [ko00001.keg](https://www.kegg.jp)：KEGG层级注释体系，主页 —— KEGG BRITE —— KEGG Orthology (KO) —— Download htext，下载保存为ko00001.tsv
+    - ko00001.tsv：转换jason格式为制表符分隔的KO对应描述、(三级)通路、二级通路和一级通路信息
+    - KO1-4.txt：KO对应的3级注释，包括(三级)通路、二级通路和一级通路信息，用于KO表的分类汇总
     - KO_description.txt：KO编号对应的功能描述
-    - KO_path.list：KO对应通路(Pathway)
-    - ko00001.tsv：KO对应描述、通路、超级通路和分类信息
+    - KO_path.list：KO与通路(Pathway)的对应关系，存在某个KO存在于多个通路(1对多)
 - usearch：usearch/vsearch物种分类sintax命令使用数据库
-    - rdp_16s_v16_sp.fa.gz：16S的RDP16数据库，usearch作者整理，更16S、ITS和18S数据库见 http://www.drive5.com/usearch/manual/sintax_downloads.html
-    - rdp_16s_v18.fa.gz：16S的RDP18数据库，易生信团队2021年基于RDP数据库整理
+    - [rdp_16s_v16_sp.fa.gz](http://www.drive5.com/usearch/manual/sintax_downloads.html)：16S的RDP16数据库，usearch作者整理，更多16S、ITS和18S数据库见 http://www.drive5.com/usearch/manual/sintax_downloads.html
+    - rdp_16s_v18.fa.gz：16S的RDP18数据库，2021年基于RDP数据库整理
     - utax_reference_dataset_all_04.02.2020.fasta.gz：ITS注释数据库，可从UNITE下载
 
 ## 脚本 
@@ -106,7 +112,7 @@ Scripts and databases for easy amplicon and easy metagenome
     - metaphlan_boxplot.R：metaphalan2结果可视化为箱线图
     - metaphlan_hclust_heatmap.R：metaphalan2结果可视化为聚类热图
     - metaphlan_to_stamp.pl：metaphalan2结果转换为STAMP格式
-    - otu_mean.R：OTU表统计各组均值
+    - otu_mean.R：OTU表统计分组均值(总体均值)、分组求合
     - otutab_filter_nonBac.R：16S的OTU表按sintax注释结果选择细菌、古菌且过滤叶绿体和线粒体
     - otutab_filter_nonFungi.R：ITS的OTU表选择真菌
     - otutab_freq2count.R：转换频率为伪整数，用于要求整型输入的分析，如多样性、edgeR差异分析等
@@ -118,3 +124,11 @@ Scripts and databases for easy amplicon and easy metagenome
     - tax_circlize.R：物种组成圈图
     - tax_maptree.R：物种组成气泡图
     - tax_stackplot.R：物种组成堆叠柱状图
+
+使用此脚本，请引用下文：
+
+If used this script, please cited:
+
+**Yong-Xin Liu**, Yuan Qin, **Tong Chen**, et. al. A practical guide to amplicon and metagenomic analysis of microbiome data. **Protein Cell**, 2021(12) 5:315-330, doi: [10.1007/s13238-020-00724-8](https://doi.org/10.1007/s13238-020-00724-8)
+
+Copyright 2016-2021 Yong-Xin Liu <metagenome@126.com>
