@@ -22,6 +22,7 @@ Version:  v1.01
 Update:   2021/1/18
 Notes:    v1.00 2021/1/4 创立脚本
           v1.01 2021/1/18 修改竖线后多个酶学编号的问题(|2.4.1.22|2.4.1.38|2.4.1.90)
+          v1.02 2021/7/7 新增相似度在第3列
 \n!
     )
 }
@@ -103,7 +104,7 @@ open OUTPUT,">$opts{o}";
 
 # 使用存储结果，防止输出重复结果
 my %database;
-print OUTPUT "Name\tCAZy\n";
+print OUTPUT "Name\tCAZy\tIdentity\n";
 while (<INPUT>) {
 	chomp;
 	my @tmp=split/\t/;
@@ -123,7 +124,7 @@ while (<INPUT>) {
 		$tmp1[$_]=~s/_.*//;
 		if (!$database{$tmp[0]}{$tmp1[$_]}) {
 		#print "$tmp[0]\t$tmp1[$_]\n";
-		print OUTPUT "$tmp[0]\t$tmp1[$_]\n";
+		print OUTPUT "$tmp[0]\t$tmp1[$_]\t$tmp[2]\n";
 		}else{
 			next;
 		}
