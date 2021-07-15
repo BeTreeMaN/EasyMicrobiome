@@ -9,6 +9,7 @@
 
 # 更新
 # 2021/6/27: 添加显示标签的功能
+# 2021/9/9: 添加是否组间统计的选项 --stat FALSE
 
 #----1. 参数 Parameters#----
 
@@ -59,6 +60,8 @@ if (TRUE){
                 help="Group name [default %default]"),
     make_option(c("-l", "--label"), type="logical", default=FALSE,
                 help="Design file or metadata [default %default]"),
+    make_option(c("-s", "--stat"), type="logical", default=TRUE,
+                help="Open pair-wise stat [default %default]"),
     make_option(c("-o", "--output"), type="character", default="",
                 help="Output directory; name according to input [default %default]"),
     make_option(c("-w", "--width"), type="numeric", default=89,
@@ -102,5 +105,8 @@ ggsave(opts$output, p, width = opts$width, height = opts$height, units = "mm")
 
 #---3.2 组间统计 Stat#----
 # statistic each pairwise by adonis
-beta_pcoa_stat(distance_mat, metadata, groupID = opts$group)
 # 结果文件默认见beta_pcoa_stat.txt
+if (opts$stat){
+	beta_pcoa_stat(distance_mat, metadata, groupID = opts$group)
+}
+
