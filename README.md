@@ -8,13 +8,48 @@ Popular software, scripts and database annotation for EasyAmplicon and EasyMetag
 
 更新时间(Update)：2021/8/20
 
-## 软件
+项目主页(Project homepage): https://github.com/yongxinliu/EasyMicrobiome
+
+## 软件安装(Install)
+
+整个软件包几乎每周都更新，每个季度会更新生成一次稳定版。建议直载最新版并添加至环境变量至可使用
+
+
+两种下载数据库的方法：任选其一即可
+
+	# 方法1. git下载，可使用wget或主页中直接下载压缩包
+	git clone https://github.com/YongxinLiu/EasyMicrobiome
+
+	# 方法2. 备用链接下载
+	wget -c http://210.75.224.110/db/EasyMicrobiome.zip
+	unzip EasyMicrobiome.zip
+
+添加linux命令可执行权限
+
+	chmod +x EasyMicrobiome/linux/*
+
+添加软件至环境变量，否则需要指定软件的完整路径使用
+
+	# 临时添加环境变量
+	export PATH=$PATH:`pwd`/EasyMicrobiome/linux:`pwd`/EasyMicrobiome/script"
+	# 将变量写入.bashrc，永久添加环境变量
+	echo "PATH=$PATH:`pwd`/EasyMicrobiome/linux:`pwd`/EasyMicrobiome/script" >> ~/.bashrc
+
+## 使用方法
+
+该软件为易扩增子、易宏基因组的依赖包。详细使用见各项目主页：
+
+- 易扩增子分析流程：https://github.com/YongxinLiu/EasyAmplicon
+
+- 易宏基因组分析流程：https://github.com/YongxinLiu/EasyMetagenome
+
+流程的绘图部分，依赖的R包较多，推荐在Windows系统是使用(安装R包更方便)，同时提供了4百个包的合集下载，节省安装时间
+
+- R语言4.1环境和R包：R语言主页 http://www.r-project.org ，Windows版包合集 http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip
+
+## 软件清单
 
 *注：名称的链接对应软件的主页，大部分已经整合入本项目。对于较大的文件，标题后提供下载链接，使用时需自行下载。
-
-- 易扩增子分析流程：http://210.75.224.110/db/train/2107Amplicon12/amplicon.zip
-- R语言4.1环境和R包：Windows版: 软件 http://210.75.224.110/db/train/2107Amplicon12/win_soft/R-4.1.0-win.exe 和 包 http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip
-- 依赖软件和数据库: https://github.com/yongxinliu/EasyMicrobiome
 
 - linux：Linux系统下分析软件
     - [microbiome_helper](https://github.com/LangilleLab/microbiome_helper)：微生物组分析输助脚本，如metaphlan2结果转换STAMP格式(metaphlan_to_stamp.pl)，picurst结果功能组成绘图(plot_metagenome_contributions.R)
