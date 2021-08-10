@@ -1,12 +1,12 @@
-# 微生物组软件和数据库清单(db)
+# 易微生物组(EasyMicrobiome)
 
-易扩增子、易宏基因组分析流程依赖常用软件、数据库、脚本文件
+易扩增子、易宏基因组等分析流程依赖常用软件、脚本文件和数据库注释文件等。
 
-Scripts and databases for easy amplicon and easy metagenome
+Popular software, scripts and database annotation for EasyAmplicon and EasyMetagenome
 
-版本：db v1.12
+版本(Version)：EasyMicrobiome v1.12
 
-更新时间：2021/7/7
+更新时间(Update)：2021/8/20
 
 ## 软件
 
@@ -14,7 +14,7 @@ Scripts and databases for easy amplicon and easy metagenome
 
 - 易扩增子分析流程：http://210.75.224.110/db/train/2107Amplicon12/amplicon.zip
 - R语言4.1环境和R包：Windows版: 软件 http://210.75.224.110/db/train/2107Amplicon12/win_soft/R-4.1.0-win.exe 和 包 http://210.75.224.110/db/train/2107Amplicon12/win_soft/4.1.zip
-- 依赖软件和数据库: https://github.com/yongxinliu/db
+- 依赖软件和数据库: https://github.com/yongxinliu/EasyMicrobiome
 
 - linux：Linux系统下分析软件
     - [microbiome_helper](https://github.com/LangilleLab/microbiome_helper)：微生物组分析输助脚本，如metaphlan2结果转换STAMP格式(metaphlan_to_stamp.pl)，picurst结果功能组成绘图(plot_metagenome_contributions.R)
@@ -78,6 +78,8 @@ Scripts and databases for easy amplicon and easy metagenome
     - [rdp_16s_v16_sp.fa.gz](http://www.drive5.com/usearch/manual/sintax_downloads.html)：16S的RDP16数据库，usearch作者整理，更多16S、ITS和18S数据库见 http://www.drive5.com/usearch/manual/sintax_downloads.html
     - rdp_16s_v18.fa.gz：16S的RDP18数据库，2021年基于RDP数据库整理
     - utax_reference_dataset_all_04.02.2020.fasta.gz：ITS注释数据库，可从UNITE下载
+- eggnog: eggnog结果的注释文件补充
+    - COG.anno：COG的第一、二级注释
 
 ## 脚本 
 
@@ -132,3 +134,5 @@ If used this script, please cited:
 **Yong-Xin Liu**, Yuan Qin, **Tong Chen**, et. al. A practical guide to amplicon and metagenomic analysis of microbiome data. **Protein Cell**, 2021(12) 5:315-330, doi: [10.1007/s13238-020-00724-8](https://doi.org/10.1007/s13238-020-00724-8)
 
 Copyright 2016-2021 Yong-Xin Liu <metagenome@126.com>
+
+
