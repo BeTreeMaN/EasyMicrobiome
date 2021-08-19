@@ -14,7 +14,6 @@ Popular software, scripts and database annotation for EasyAmplicon and EasyMetag
 
 整个软件包几乎每周都更新，每个季度会更新生成一次稳定版。建议直载最新版并添加至环境变量至可使用
 
-
 两种下载数据库的方法：任选其一即可
 
 	# 方法1. git下载，可使用wget或主页中直接下载压缩包
