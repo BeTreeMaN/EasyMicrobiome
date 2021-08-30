@@ -59,6 +59,8 @@ if (TRUE){
     make_option(c("-n", "--group"), type="character", default="Group",
                 help="Group name [default %default]"),
     make_option(c("-s", "--scale"), type="logical", default=FALSE,
+                help="Normalize [default %default]"),
+    make_option(c("-z", "--zoom"), type="numeric", default=FALSE,
                 help="Normalize to 100 [default %default]"),
     make_option(c("-o", "--output"), type="character", default="result/alpha/",
                 help="Output pdf directory, with prefix alpha_boxplot_; Stat in alpha_boxplot_TukeyHSD.txt [default %default]"),
@@ -92,7 +94,7 @@ if (opts$transpose){
 
 # 条件判断是否标准化
 if (opts$scale){
-  alpha_div = alpha_div/rowSums(alpha_div,na=T)*100
+  alpha_div = alpha_div/rowSums(alpha_div,na=T)*opts$zoom
 }
 
 # 读取实验设计
@@ -104,4 +106,6 @@ if (opts$xlabAngle){
 }
 # Saving figure
 # 保存图片，大家可以修改图片名称和位置，长宽单位为毫米
-ggsave(paste0(opts$output,"/alpha_boxplot_",opts$alpha_index,".pdf"), p, width = opts$width, height = opts$height, units = "mm")
+ggsave(paste0(opts$output,"/a_box_",opts$alpha_index,".pdf"), p, width = opts$width, height = opts$height, units = "mm")
+
+
