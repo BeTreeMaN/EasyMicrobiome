@@ -104,4 +104,4 @@ if (opts$xlabAngle){
 }
 # Saving figure
 # 保存图片，大家可以修改图片名称和位置，长宽单位为毫米
-ggsave(paste0(opts$output,"/alpha_boxplot_",opts$alpha_index,".pdf"), p, width = opts$width, height = opts$height, units = "mm")
+ggsave(paste0(opts$output,"boxplot_",opts$alpha_index,".pdf"), p, width = opts$width, height = opts$height, units = "mm")
